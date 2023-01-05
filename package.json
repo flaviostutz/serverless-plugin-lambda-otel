@@ -1,6 +1,6 @@
 {
   "name": "serverless-plugin-lambda-otel",
-  "version": "0.1.0",
+  "version": "0.3.4",
   "description": "A Serverless Framework plugin for enabling AWS OTEL Lambda layer on Lambda services",
   "main": "index.js",
   "scripts": {
