@@ -31,5 +31,9 @@
     "eslint": "^8.31.0",
     "eslint-config-google": "^0.14.0",
     "jest": "^29.3.1"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   }
 }
