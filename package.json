@@ -1,0 +1,35 @@
+{
+  "name": "serverless-plugin-lambda-otel",
+  "version": "0.1.0",
+  "description": "A Serverless Framework plugin for enabling AWS OTEL Lambda layer on Lambda services",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/awslabs/serverless-plugin-lambda-otel.git"
+  },
+  "keywords": [
+    "serverless",
+    "aws",
+    "Serverless Plugin",
+    "AWS Lambda OTEL",
+    "Metric"
+  ],
+  "author": {
+    "name": "Flavio Stutz",
+    "url": "https://github.com/flaviostutz"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/flaviostutz/serverless-plugin-lambda-otel/issues"
+  },
+  "homepage": "https://github.com/flaviostutz/serverless-plugin-lambda-otel#readme",
+  "devDependencies": {
+    "eslint": "^8.31.0",
+    "eslint-config-google": "^0.14.0",
+    "jest": "^29.3.1"
+  }
+}

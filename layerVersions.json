@@ -1,0 +1,7 @@
+{
+    "nodejs": "1-8-0",
+    "python": "1-15-0",
+    "java-wrapper": "1-20-1",
+    "java-agent": "1-20-1",
+    "collector": "0-66-0"
+}
