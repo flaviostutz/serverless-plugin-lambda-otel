@@ -17,7 +17,7 @@ This plugin implements the instructions as can be found at https://aws-otel.gith
 
 You can use this AWS Layer on your Lambda services so they can generate and publish OTEL traces for dependencies called within your Lambda function without manual instrumentation. For example, after using it, X-Ray traces dashboard will show segments related to external APIs your NodeJS based Lambda service is calling along with its latency, number of calls and status.
 
-![AWS OTEL Lambda](https://github.com/aws-observability/aws-otel-lambda)
+[AWS OTEL Lambda](https://github.com/aws-observability/aws-otel-lambda)
 
 ---
 
