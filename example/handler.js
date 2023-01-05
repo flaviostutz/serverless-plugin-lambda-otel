@@ -1,12 +1,14 @@
 'use strict';
+const axios = require('axios');
 
 module.exports.hello = async (event) => {
+  const resp = await axios.get('https://randomuser.me/api/');
   return {
     statusCode: 200,
     body: JSON.stringify(
         {
-          message: 'Go Serverless v1.0! Your function executed successfully!',
-          input: event,
+          message: 'Function executed successfully',
+          randomUser: resp.data,
         },
         null,
         2,

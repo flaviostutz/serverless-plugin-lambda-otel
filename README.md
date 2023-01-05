@@ -38,6 +38,9 @@ Example `serverless.yml`:
 ```yaml
 provider:
   name: aws
+  tracing:
+    apiGateway: true
+    lambda: true
 
 plugins:
   - serverless-plugin-lambda-otel
@@ -45,8 +48,13 @@ plugins:
 functions:
   hello:
     handler: handler.hello
-    otel: true
+
+custom:
+  lambdaOTEL:
+    enable: true
 ```
+
+- With this configuration you will enable OTEL layer and X-Ray tracing by default on all the functions
 
 ### Functionality
 
@@ -88,53 +96,29 @@ custom:
     xrayPolicy: false # attach X-Ray Managed Policy to functions. defaults to true
 ```
 
-- With the following configuration you will enable OTEL layer and X-Ray tracing by default on all the functions:
-
-```yaml
-service: your-great-sls-service
-
-provider:
-  name: aws
-  tracing:
-    apiGateway: true
-    lambda: true
-
-plugins:
-  - serverless-plugin-lambda-otel
-
-functions:
-  mainFunction:
-    handler: src/app/index.handler
-  secondFunction:
-    handler: src/app/index.handler
-
-custom:
-  lambdaOTEL:
-    enable: true
-```
-
-
 ### Example
 
 You can find an example in the example folder of this repository. Run it with the following command.
 
 `cd example; serverless deploy`
 
-This will deploy a hello-world Lambda function with Lambda OTEL layer enabled, which will give you X-Ray instrumentation by default.
+- This will deploy a hello-world Lambda function with Lambda OTEL layer enabled, which will give you X-Ray instrumentation by default.
+
+- After the deployment, call the endpoint URL that is displayed
+
+```sh
+curl https://[SOMETHING].execute-api.us-east-1.amazonaws.com/dev/hello
+```
+
+- It should return a random user data, which was gotten from the service https://randomuser.me/api/
+
+- Open the AWS Console and check X-Ray traces. You should be able to inspect the calls to your service and to randomuser.me apis (the tracing to the external API is only possible due to the OTEL layer instrumentation)
 
 ---
 
 ## Want to contribute?
 
 This is your repo - just go head and create a pull request. See also [CONTRIBUTING](CONTRIBUTING.md) for more introductions.
-
-Some open Ideas and Tasks:
-
-- [ ] Testing with Jest
-- [ ] Add Toggle for auto policy attachment
-- [ ] Add an example
-
----
 
 ## Security
 

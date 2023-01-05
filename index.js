@@ -26,7 +26,8 @@ class AddLambdaOTEL {
     if (this.checkValidationSupport(serverless)) {
       serverless.configSchemaHandler.defineFunctionProperties('aws', {
         properties: {
-          lambdaOTEL: {type: 'boolean'},
+          otelEnable: {type: 'boolean'},
+          otelVersion: {type: 'string'},
         },
       });
 
@@ -35,9 +36,9 @@ class AddLambdaOTEL {
           lambdaOTEL: {
             type: 'object',
             properties: {
-              default: {type: 'boolean'},
-              attachXRayPolicy: {type: 'boolean'},
-              layerVersion: {type: 'string'},
+              enable: {type: 'boolean'},
+              version: {type: 'string'},
+              xrayPolicy: {type: 'boolean'},
             },
           },
         },

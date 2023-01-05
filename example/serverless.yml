@@ -1,19 +1,26 @@
 service: testService
 
-frameworkVersion: '2'
+frameworkVersion: '3'
 
 plugins:
-  - ./../index.js
+  - ../index.js
 
 provider:
   name: aws
   runtime: nodejs12.x
+  logRetentionInDays: 7
+  tracing:
+    lambda: true
+    apiGateway: true
 
 functions:
   hello:
     handler: handler.hello
-    lambdaInsights: true
+    events:
+      - http:
+          path: hello
+          method: get
 
 custom:
-  lambdaInsights: 
-    lambdaInsightsVersion: 14 #specify the Layer Version
+  lambdaOTEL: 
+    enable: true
